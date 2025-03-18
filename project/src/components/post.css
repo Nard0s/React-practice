@@ -1,0 +1,8 @@
+.post{
+    background-color: aqua;
+    width: 20%;
+    padding:10px 5px;
+    margin: 5px;
+    border: solid rgba(0, 0, 0, 0.186);
+    border-radius: 16px
+}
