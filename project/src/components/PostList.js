@@ -1,8 +1,7 @@
 import { useState } from "react";
-import NewPost from "./NewPost";
 import Post from "./post";
 import'./PostList.module.css';
-import Modal from './Modal';
+
 
 
 function PostList(props){
@@ -15,11 +14,6 @@ function PostList(props){
     
     return(
         <>
-        {props.isPosting &&(
-        <Modal onClose={props.onStop}>
-            <NewPost onCancel={props.onStop} onAddPost={addPostHandler}/>
-        </Modal>
-        )}
         {posts.length> 0 &&( 
         <ul >
             {posts.map((post)=><Post key={post.body} name={post.name} body={post.body}/>)}
