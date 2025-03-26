@@ -6,34 +6,28 @@ import Modal from './Modal';
 
 
 function PostList(props){
-    
-    const[enteredBody,setEnteredBody]=useState('');
-    const[enteredName,setEnteredName]=useState('');
-    function changeHandler(event){
-        setEnteredBody(event.target.value);
+  const[posts,setPosts]=useState([]);
+
+  function addPostHandler(postData){
+        setPosts((existingPosts)=>[postData,...existingPosts]);
+        props.onStop();
     }
-    function nameChange(event){
-        setEnteredName(event.target.value);
-    }
-  
     
     return(
         <>
         {props.isPosting &&(
         <Modal onClose={props.onStop}>
-            <NewPost 
-                onBodyChange={changeHandler} 
-                onNameChange={nameChange}
-                onCancel={props.onStop}
-            />
+            <NewPost onCancel={props.onStop} onAddPost={addPostHandler}/>
         </Modal>
         )}
-        <ul>
-            <Post name={enteredName} body={enteredBody}/>
-            <Post/>
-            <Post/>
+        {posts.length> 0 &&( 
+        <ul >
+            {posts.map((post)=><Post key={post.body} name={post.name} body={post.body}/>)}
         </ul>
-        
+        )}
+        {posts.length===0   &&(
+            <p style={{textAlign:"center",color:"black"}}>No posts found.</p>
+        )}
         </>
     );
 }
