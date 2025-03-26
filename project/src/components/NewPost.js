@@ -15,6 +15,10 @@ function NewPost(props){
                 <lable htmlFor="name">Your name</lable>
                 <input type="text" id="name"   required onChange={props.onNameChange}/>
             </p>
+            <p className={classes.actions}>
+            <button type='button' onClick={props.onCancel}>Cancel</button>
+            <button type='submit'>Submit</button>
+            </p>
         </form>
     );
 }

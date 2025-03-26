@@ -24,6 +24,7 @@ function PostList(props){
             <NewPost 
                 onBodyChange={changeHandler} 
                 onNameChange={nameChange}
+                onCancel={props.onStop}
             />
         </Modal>
         )}

@@ -5,11 +5,11 @@ function MainHeader(props) {
         <>
         <header className={classes.header}>
             <h1 className={classes.logo}>
-                {/* <MdMessage/> */}
+                <MdMessage/>
                 React Poster
             </h1>
             <p>
-                <button className={classes.button}onClick={props.onCreatePost}>
+                <button className={classes.button} onClick={props.onCreatePost}>
                     <MdPostAdd size={18}/>
                     NewPost
                 </button>

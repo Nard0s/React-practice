@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import MainHeader from './components/MainHeader';
-import PostList from "./components/PostList";
-import { useState } from "react";
+import PostList from './components/PostList';
 function App() {
-  const[modalIsVisible,setModalIsVisible]=useState(true);
+  const[modalIsVisible,setModalIsVisible]=useState(false);
   function handlerClose(){
     setModalIsVisible(false);
 }
@@ -11,10 +11,11 @@ function handlerShow(){
 }
   return (
     <>
-    <MainHeader coCreatePost={handlerShow}/>
-    <div>
-     <PostList isPosting={modalIsVisible} onStop={handlerClose}/>
-    </div>
+      <MainHeader onCreatePost={handlerShow}/>
+      <div>
+      <PostList isPosting={modalIsVisible} 
+                  onStop={handlerClose}/>
+      </div>
     </>
   );
 }
