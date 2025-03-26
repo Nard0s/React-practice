@@ -3,7 +3,7 @@ function Modal(props){
     return(
     <>
         <div className={classes.backdrop} onClick={props.onClose}/>
-            <dialog open className={classes.modal}>
+            <dialog open={true} className={classes.modal}>
                 {props.children}
             </dialog>
     
@@ -11,3 +11,14 @@ function Modal(props){
     );
 }
 export default Modal;
+
+
+
+
+
+
+
+
+
+
+

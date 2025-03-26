@@ -5,8 +5,8 @@ import'./PostList.module.css';
 import Modal from './Modal';
 
 
-function PostList(){
-    const[modalIsVisible,setModalIsVisible]=useState(true);
+function PostList(props){
+    
     const[enteredBody,setEnteredBody]=useState('');
     const[enteredName,setEnteredName]=useState('');
     function changeHandler(event){
@@ -15,20 +15,18 @@ function PostList(){
     function nameChange(event){
         setEnteredName(event.target.value);
     }
-    function close(){
-        setModalIsVisible(false);
-    }
+  
     
     return(
         <>
-        
-        {modalIsVisible ?
-        <Modal onClose={close}>
+        {props.isPosting &&(
+        <Modal onClose={props.onStop}>
             <NewPost 
                 onBodyChange={changeHandler} 
                 onNameChange={nameChange}
             />
-        </Modal>:null}
+        </Modal>
+        )}
         <ul>
             <Post name={enteredName} body={enteredBody}/>
             <Post/>
